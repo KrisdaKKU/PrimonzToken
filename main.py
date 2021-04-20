@@ -1,4 +1,4 @@
-'''from typing import Optional
+from typing import Optional
 
 from fastapi import FastAPI
 
@@ -11,7 +11,7 @@ def my_function(text:str):
   sent = text.lower()
   list_word = nltk.word_tokenize(sent)
   list_word = str(list_word)
-  return { "text":list_word }'''
+  return { "text":list_word }
 
 from fastapi import FastAPI
 from fastapi import UploadFile, File
