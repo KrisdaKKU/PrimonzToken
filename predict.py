@@ -7,9 +7,10 @@ import glob
 import glob
 import pandas as pd
 import pickle
+
+dataset = []
 def createdataset():
   imgfolder = glob.glob('images/*')
-  dataset = []
   for cls in imgfolder:
     clsset = pd.DataFrame()
     pList = glob.glob(cls+'/*')
@@ -17,19 +18,18 @@ def createdataset():
     for p in pList:
       dat = pickle.load(open(p,'rb'))
       featvec.append(dat.resnet50)
-
     clsset['feature'] = featvec
     cls = cls.split('/')[-1]
     clsset['label'] = cls
     dataset.append(clsset)
   return pd.concat(dataset,axis=0)
+
 dataset = createdataset()
-dataset
+
 
 imgfolder = glob.glob('images/*')
 for cls in imgfolder:
   imgList = glob.glob(cls+'/*')
-imgList
 
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -54,11 +54,12 @@ def predicting(imgurl):
   a = cv.image(imgurl)
   feat = a.getresnet50()
   res = mod.predict([feat])
-  return res
+  return str(res)
 
 
 def answer(name):
   a=predicting(name)
   b = str(a).split(' ')
   c = b[0].split('\'')
-  return c[1]
+  #c="razor"
+  return str(c)
