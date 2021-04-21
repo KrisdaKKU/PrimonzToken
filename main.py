@@ -22,11 +22,9 @@ app = FastAPI()
 
 @app.post("/api/predict")
 def predict_image(file:UploadFile = File(...)):
-  #print('aaa')
-  name = file.filename #.split('.')[-1] in ("jpg", "jpeg", "png","jfif")
+  name = file.filename
   char = predict.answer(name)
-  return str(char)
+  return {"name":str(char)}
 
 if __name__ == "__main__":
-  import uvicorn
-  uvicorn.run(app, host="localhost", port=2020, debug=True)
+  uvicorn.run(app, host="localhost", port=8080, debug=True)
