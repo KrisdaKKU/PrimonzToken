@@ -12,6 +12,5 @@ uvicorn==0.11.7
 uvloop==0.12.2
 websockets==7.0
 keras
-tensorflow
 h5py==2.10.0
 botnoi
