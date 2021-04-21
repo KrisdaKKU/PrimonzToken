@@ -13,7 +13,7 @@ def my_function(text:str):
   list_word = str(list_word)
   return { "text":list_word }
 
-from fastapi import FastAPI
+'''from fastapi import FastAPI
 from fastapi import UploadFile, File
 import uvicorn
 import predict
@@ -29,4 +29,4 @@ def predict_image(file:UploadFile = File(...)):
 
 if __name__ == "__main__":
   import uvicorn
-  uvicorn.run(app, host="localhost", port=2020, debug=True) 
+  uvicorn.run(app, host="localhost", port=2020, debug=True) '''
